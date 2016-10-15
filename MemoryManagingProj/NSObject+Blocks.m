@@ -11,21 +11,12 @@
 @implementation NSArray (Blocks)
 
 -(void)getArrayWithoutDuplicateItems:(NSArray *)arr withBlock:(void(^)(NSArray* secondArr))completionBlock{
-    NSMutableArray *sumArr = [NSMutableArray new];
+    NSMutableArray *sumArr   = [NSMutableArray new];
     NSMutableArray *resultArr = [NSMutableArray new];
-    
-    
-    NSOrderedSet *v  = [NSOrderedSet orderedSetWithArray:arr];
-    NSOrderedSet *s = [NSOrderedSet orderedSetWithArray:self];
-    
-    NSMutableArray *firstArr = [v mutableCopy];
-    NSMutableArray *secondArr = [s mutableCopy];
-    
-    
-    [sumArr addObjectsFromArray:secondArr];
-    [sumArr addObjectsFromArray:firstArr];
-    
     bool newItim;
+    
+    [sumArr addObjectsFromArray:arr];
+    [sumArr addObjectsFromArray:self];
     
     for(int i = 0; i < sumArr.count; i++){
         newItim = true;
